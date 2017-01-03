@@ -24,7 +24,7 @@ namespace ProfileSearchApp.Controllers
             {
                 profiles = profiles.Where(s => s.firstName.Contains(searchString) || s.lastName.Contains(searchString));
             }
-            return PartialView(profiles);
+            return View(profiles);
         }
 
         // GET: Profiles/Details/5
