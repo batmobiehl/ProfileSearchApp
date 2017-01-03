@@ -15,9 +15,16 @@ namespace ProfileSearchApp.Controllers
         private ProfileDbContext db = new ProfileDbContext();
 
         // GET: Profiles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Profiles.ToList());
+            var profiles = from p in db.Profiles
+                         select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                profiles = profiles.Where(s => s.firstName.Contains(searchString) || s.lastName.Contains(searchString));
+            }
+            return PartialView(profiles);
         }
 
         // GET: Profiles/Details/5
