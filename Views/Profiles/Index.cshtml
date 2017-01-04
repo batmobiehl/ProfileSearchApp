@@ -5,13 +5,14 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Content/css/styles.css" />
 
-<div id="profiles">
-    <h2>Index</h2>
+<div id="profiles" class="container">
+    <h2>Profiles</h2>
     @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
     {
         <p>
-            Title: @Html.TextBox("SearchString") <br />
-            <input type="submit" value="Filter" />
+            @Html.TextBox("SearchString", null, new { @class = "form-control" } ) <br/>
+            <input type="submit" value="Search" class="btn btn-default" /> 
+           
         </p>
     }
     <div id="loading">
@@ -20,71 +21,99 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.firstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.userName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.zipcode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.profilePicture)
-            </th>
-            <th></th>
-        </tr>
-
+    <div class="row">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.firstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.userName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.street)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.city)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.state)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.zipcode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.profilePicture)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+            <div class="col-md-8 col-md-offset-2">
+                <div id="profile" class="panel panel-primary panel-">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">@Html.DisplayFor(modelItem => item.firstName) @Html.DisplayFor(modelItem => item.lastName)</h3>
+                    </div>
+                    <div class="panel-body">
+                        Profile Pic: <br /> 
+                        Username: @Html.DisplayFor(modelItem => item.userName) <br />
+                        Address: @Html.DisplayFor(modelItem => item.street) <br />
+                                @Html.DisplayFor(modelItem => item.city)
+                                @Html.DisplayFor(modelItem => item.state)
+                                @Html.DisplayFor(modelItem => item.zipcode)
+                        
+                    </div>
+                    <div class="panel-footer">
+                        
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-small btn-warning"})
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-remove btn btn-small btn-danger" })
+                        
+                    </div>
+                </div>
+            </div>
         }
 
-    </table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.userName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.state)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.zipcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.profilePicture)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.state)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.zipcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.profilePicture)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
 </div>
 @Scripts.Render("~/Scripts/jquery-1.10.2.js")
 @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
