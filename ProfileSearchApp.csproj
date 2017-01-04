@@ -176,7 +176,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\abraham_lincoln.jpg" />
+    <Content Include="Content\images\alexander_hamilton.jpg" />
+    <Content Include="Content\images\andrew_jackson.jpg" />
+    <Content Include="Content\images\ben_franklin.jpg" />
+    <Content Include="Content\images\george_washington.jpg" />
     <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\thomas_jefferson.jpg" />
+    <Content Include="Content\images\ulysses_grant.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
