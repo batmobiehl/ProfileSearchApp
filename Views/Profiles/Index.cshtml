@@ -3,82 +3,68 @@
 @{
     ViewBag.Title = "Index";
 }
-<div id="profiles">
-    <h2>Index</h2>
-    @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
-    {
-        <p>
-            Title: @Html.TextBox("SearchString") <br />
-            <input type="submit" value="Filter" />
-        </p>
-    }
+<link rel="stylesheet" type="text/css" href="~/Content/css/styles.css?v={random}" />
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.firstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.userName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.zipcode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.profilePicture)
-            </th>
-            <th></th>
-        </tr>
+<div id="profiles" class="container-fluid">
+    <div id="loading">
+    </div>
+        <div class="row">
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+                <h2>Profiles</h2>
+                @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
+                {
+                    <p>
+                        @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </p>
+                }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.firstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.userName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.street)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.city)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.state)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.zipcode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.profilePicture)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
-        }
-
-    </table>
+                <p>
+                    @Html.ActionLink("Create New", "Create", null, new {@class = "btn btn-default"})
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-8 col-md-offset-2">
+                    <div id="profile" class="panel panel-primary panel-">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">@Html.DisplayFor(modelItem => item.firstName) @Html.DisplayFor(modelItem => item.lastName)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4 profile-pic" align="center">
+                                    <img src="@Html.DisplayFor(modelItem => item.profilePicture)" alt="@Html.DisplayFor(modelItem => item.firstName)" />
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <table class="table" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td align="right"><strong>Username:</strong></td>
+                                                <td>@Html.DisplayFor(modelItem => item.userName)</td>
+                                            </tr>
+                                             
+                                            <tr>
+                                                <td align="right"><strong>Address:</strong></td>
+                                                <td>@Html.DisplayFor(modelItem => item.street)<br/>
+                                                @Html.DisplayFor(modelItem => item.city), @Html.DisplayFor(modelItem => item.state) @Html.DisplayFor(modelItem => item.zipcode)
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-small btn-warning" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-remove btn btn-small btn-danger pull-right" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    
 </div>
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
