@@ -19,9 +19,6 @@
                     </p>
                 }
 
-
-
-
                 <p>
                     @Html.ActionLink("Create New", "Create")
                 </p>
@@ -37,23 +34,31 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-4 col-lg-4">
+                                <div class="col-md-4 col-lg-4 profile-pic" align="center">
                                     <img src="@Html.DisplayFor(modelItem => item.profilePicture)" alt="@Html.DisplayFor(modelItem => item.firstName)" />
                                 </div>
-                                <div class="col-md-8 col-lg-8">
-                                    Username: @Html.DisplayFor(modelItem => item.userName) <br />
-                                    Address: @Html.DisplayFor(modelItem => item.street) <br />
-                                    @Html.DisplayFor(modelItem => item.city)
-                                    @Html.DisplayFor(modelItem => item.state)
-                                    @Html.DisplayFor(modelItem => item.zipcode)
+                                <div class="col-md-6 col-lg-6">
+                                    <table class="table" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td align="right"><strong>Username:</strong></td>
+                                                <td>@Html.DisplayFor(modelItem => item.userName)</td>
+                                            </tr>
+                                             
+                                            <tr>
+                                                <td align="right"><strong>Address:</strong></td>
+                                                <td>@Html.DisplayFor(modelItem => item.street)<br/>
+                                                @Html.DisplayFor(modelItem => item.city), @Html.DisplayFor(modelItem => item.state) @Html.DisplayFor(modelItem => item.zipcode)
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                         <div class="panel-footer">
-
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-small btn-warning" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-remove btn btn-small btn-danger pull-right" })
-
                         </div>
                     </div>
                 </div>

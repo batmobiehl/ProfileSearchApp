@@ -14,3 +14,8 @@
     z-index: 1;
     display: none;
 }
+
+.profile-pic img {
+    width: 55%;
+    border-radius: 100%;
+}
