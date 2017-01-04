@@ -3,60 +3,63 @@
 @{
     ViewBag.Title = "Index";
 }
-<link rel="stylesheet" type="text/css" href="~/Content/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/styles.css?v={random}" />
 
-<div id="profiles" class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-ffset-6">
-            <h2>Profiles</h2>
-            @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
-            {
-                <p>
-                    @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
-                    <input type="submit" value="Search" class="btn btn-default" />
-                </p>
-            }
-
-            <div id="loading">
-                <img src="~/Content/images/loading.gif" />
-            </div>
-            <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
-        </div>
+<div id="profiles" class="container-fluid">
+    <div id="loading">
     </div>
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-8 col-md-offset-2">
-                <div id="profile" class="panel panel-primary panel-">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">@Html.DisplayFor(modelItem => item.firstName) @Html.DisplayFor(modelItem => item.lastName)</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-4 col-lg-4">
-                                <img src="@Html.DisplayFor(modelItem => item.profilePicture)" alt="@Html.DisplayFor(modelItem => item.firstName)" />
-                            </div>
-                            <div class="col-md-8 col-lg-8">
-                                Username: @Html.DisplayFor(modelItem => item.userName) <br />
-                                Address: @Html.DisplayFor(modelItem => item.street) <br />
-                                @Html.DisplayFor(modelItem => item.city)
-                                @Html.DisplayFor(modelItem => item.state)
-                                @Html.DisplayFor(modelItem => item.zipcode)
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Profiles</h2>
+                @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
+                {
+                    <p>
+                        @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </p>
+                }
+
+
+
+
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-8 col-md-offset-2">
+                    <div id="profile" class="panel panel-primary panel-">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">@Html.DisplayFor(modelItem => item.firstName) @Html.DisplayFor(modelItem => item.lastName)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <img src="@Html.DisplayFor(modelItem => item.profilePicture)" alt="@Html.DisplayFor(modelItem => item.firstName)" />
+                                </div>
+                                <div class="col-md-8 col-lg-8">
+                                    Username: @Html.DisplayFor(modelItem => item.userName) <br />
+                                    Address: @Html.DisplayFor(modelItem => item.street) <br />
+                                    @Html.DisplayFor(modelItem => item.city)
+                                    @Html.DisplayFor(modelItem => item.state)
+                                    @Html.DisplayFor(modelItem => item.zipcode)
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-footer">
-                           
-                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-small btn-warning"})
+                        <div class="panel-footer">
+
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-small btn-warning" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-remove btn btn-small btn-danger pull-right" })
-            
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    
 </div>
 @Scripts.Render("~/Scripts/jquery-1.10.2.js")
 @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
