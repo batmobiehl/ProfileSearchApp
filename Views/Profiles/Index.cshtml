@@ -9,7 +9,7 @@
     <div id="loading">
     </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
                 <h2>Profiles</h2>
                 @using (Ajax.BeginForm("Index", "Profiles", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "loading", UpdateTargetId = "profiles" }))
                 {
@@ -20,7 +20,7 @@
                 }
 
                 <p>
-                    @Html.ActionLink("Create New", "Create")
+                    @Html.ActionLink("Create New", "Create", null, new {@class = "btn btn-default"})
                 </p>
             </div>
         </div>
