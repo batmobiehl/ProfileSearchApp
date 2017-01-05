@@ -85,7 +85,7 @@ namespace ProfileSearchApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,userName,street,city,state,zipcode,profilePicture")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,userName,street,city,state,zipcode,phoneNumber,profilePicture")] Profile profile)
         {
             if (ModelState.IsValid)
             {

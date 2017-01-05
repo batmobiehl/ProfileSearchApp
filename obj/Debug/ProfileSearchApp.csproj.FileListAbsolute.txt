@@ -53,3 +53,6 @@ c:\users\adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\Profile
 c:\users\adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.csprojResolveAssemblyReference.cache
 c:\users\adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.dll
 c:\users\adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.pdb
+C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.Migrations.InitialCreate.resources
+C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.csproj.GenerateResource.Cache
+C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.Migrations.addphonenumber.resources

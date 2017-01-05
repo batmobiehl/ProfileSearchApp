@@ -24,6 +24,7 @@ namespace ProfileSearchApp.Models
         public string state { get; set; }
         [Display(Name = "Zipcode")]
         public string zipcode { get; set; }
+        public string phoneNumber { get; set; }
         [Display(Name = "Profile Picture")]
         public string profilePicture { get; set; }
     }
