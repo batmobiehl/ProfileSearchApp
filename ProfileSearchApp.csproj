@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201701042352489_add-phonenumber.Designer.cs">
       <DependentUpon>201701042352489_add-phonenumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701050106476_dataValidations.cs" />
+    <Compile Include="Migrations\201701050106476_dataValidations.Designer.cs">
+      <DependentUpon>201701050106476_dataValidations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701042352489_add-phonenumber.resx">
       <DependentUpon>201701042352489_add-phonenumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701050106476_dataValidations.resx">
+      <DependentUpon>201701050106476_dataValidations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

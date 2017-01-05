@@ -56,3 +56,4 @@ c:\users\adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\Profile
 C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.Migrations.InitialCreate.resources
 C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.csproj.GenerateResource.Cache
 C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.Migrations.addphonenumber.resources
+C:\Users\Adrienne\documents\visual studio 2013\Projects\ProfileSearchApp\ProfileSearchApp\obj\Debug\ProfileSearchApp.Migrations.dataValidations.resources
